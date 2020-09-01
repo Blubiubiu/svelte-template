@@ -7,16 +7,12 @@
     "start": "sirv public"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.4",
-    "@babel/preset-env": "^7.11.0",
     "@rollup/plugin-commonjs": "^14.0.0",
     "@rollup/plugin-node-resolve": "^8.0.0",
     "autoprefixer": "^9.8.6",
     "core-js": "^3.6.5",
     "cross-env": "^7.0.2",
     "eslint": "^7.7.0",
-    "git-cz": "^4.7.0",
-    "node-sass": "^4.14.1",
     "postcss": "^7.0.32",
     "postcss-easy-import": "^3.0.0",
     "postcss-load-config": "^2.1.0",
@@ -24,7 +20,6 @@
     "rollup-plugin-livereload": "^1.0.0",
     "rollup-plugin-svelte": "^5.0.3",
     "rollup-plugin-terser": "^7.0.0",
-    "sass": "^1.26.10",
     "svelte": "^3.0.0",
     "svelte-preprocess": "^4.1.1"
   },
