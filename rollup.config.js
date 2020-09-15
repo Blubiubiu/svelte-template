@@ -4,6 +4,7 @@ import commonjs from '@rollup/plugin-commonjs';
 import livereload from 'rollup-plugin-livereload';
 import { terser } from 'rollup-plugin-terser';
 import sveltePreprocess from 'svelte-preprocess';
+import preprocess from './preprocess';
 import serve from 'rollup-plugin-serve';
 
 const production = process.env.NODE_ENV === 'production' ? true : false;
@@ -11,7 +12,7 @@ const production = process.env.NODE_ENV === 'production' ? true : false;
 export default {
 	input: 'src/main.js',
 	output: {
-		sourcemap: true,
+		sourcemap: !production,
 		format: 'iife',
 		name: 'app',
 		file: 'public/build/bundle' + '.js'
@@ -22,12 +23,7 @@ export default {
 			css: css => {
 				css.write('public/build/bundle.css');
 			},
-			preprocess: sveltePreprocess({
-				sourceMap: !production,
-				postcss: {
-					plugins: [require('autoprefixer')()]
-				}
-			})
+			preprocess: sveltePreprocess(preprocess)
 		}),
 		resolve({
 			browser: true,
@@ -39,7 +35,7 @@ export default {
 			contentBase: 'public',
 			historyApiFallback: true,
 			host: 'localhost',
-			port: 10001,
+			port: 10004,
 		}),
 		!production && livereload('public'),
 		production && terser()
